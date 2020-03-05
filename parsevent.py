@@ -57,10 +57,10 @@ class Parser():
         for city in cities:
             if city:
                 listofCity.append(city.get_text())
-        str(listofCity)
+        listofCity=str(listofCity)
         print(listofCity)
 
 
-xyi = Parser()
-xyi.take_url('https://dou.ua/calendar/')
-xyi.take_town()
+proces = Parser()
+proces.take_url('https://dou.ua/calendar/')
+proces.take_town()
