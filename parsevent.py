@@ -48,7 +48,7 @@ class Parser():
         listofDescr = listofDescr.replace("', '", 'qwer')
 
         listofDescr = listofDescr.split("qwer")
-        print(listofDescr)
+        return listofDescr
 
     def take_town(self):
         listofCity = []
@@ -78,9 +78,9 @@ class Parser():
         new_listofCity.extend(listofCity)
         listofCity = new_listofCity
 
-        print(listofCity)
+        return listofCity
 
 
 proces = Parser()
 proces.take_url('https://dou.ua/calendar/')
-proces.take_town()
+
