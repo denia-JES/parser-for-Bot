@@ -81,6 +81,6 @@ class Parser():
         return listofCity
 
 
-proces = Parser()
-proces.take_url('https://dou.ua/calendar/')
+process = Parser()
+process.take_url('https://dou.ua/calendar/')
 
