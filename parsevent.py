@@ -47,17 +47,37 @@ class Parser():
         listofDescr = listofDescr.replace(r']', '')
         listofDescr = listofDescr.replace("', '", 'qwer')
 
-        list = listofDescr.split("qwer")
-        print(list)
+        listofDescr = listofDescr.split("qwer")
+        print(listofDescr)
 
     def take_town(self):
         listofCity = []
         soup = bs(self.page.text, "html.parser")
-        cities=soup.find_all('div', class_='when-and-where')
+        cities = soup.find_all('div', class_='when-and-where')
         for city in cities:
             if city:
                 listofCity.append(city.get_text())
-        listofCity=str(listofCity)
+        listofCity = str(listofCity)
+        listofCity = listofCity.replace(r'\n', ' ')
+        listofCity = listofCity.replace(r'\t', '')
+        listofCity = listofCity.replace(r'[', '')
+        listofCity = listofCity.replace(r']', '')
+        listofCity = listofCity.replace("', '", 'qwer')
+        listofCity = re.findall(r"[А-Я][а-я]+", listofCity)
+        new_listofCity = []
+        number = 0
+        for city in listofCity:
+            if city == "Ивано":
+                break
+            else:
+                new_listofCity.append(city)
+                number += 1
+        new_listofCity.append("Ивано-Франковск")
+        number += 2
+        listofCity = listofCity[number:]
+        new_listofCity.extend(listofCity)
+        listofCity = new_listofCity
+
         print(listofCity)
 
 
