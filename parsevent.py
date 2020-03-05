@@ -4,7 +4,7 @@ import sys
 import re
 
 
-class Parser():
+class Parser:
 
     def take_url(self, url):
         session = HTMLSession()
@@ -83,4 +83,3 @@ class Parser():
 
 process = Parser()
 process.take_url('https://dou.ua/calendar/')
-
